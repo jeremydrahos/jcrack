@@ -7,7 +7,7 @@
 #	password for the supported router.  You must, of course, have the
 #	handshake in order to use aircrack, or whichever tool you favor, to
 #	verify which of the passwords in the dictionary is the correct one.
-jigver="v0.3.3"
+jigver="v0.3.4beta"
 echo "Jiggy Crack" $jigver "by Jeremy Drahos (jeremy@thedrahos.net)"
 echo ""
 echo "Select the router model:"
