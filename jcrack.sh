@@ -1,6 +1,6 @@
 #!/bin/sh
 #	Jiggy Crack by Jeremy Drahos
-#	jeremy@thedrahos.net
+#	jcrack@thedrahos.net
 #	http://thedrahos.net/jcrack
 #
 #	Jiggy Crack creates a dictionary file that will contain the default
