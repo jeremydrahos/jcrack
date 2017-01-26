@@ -7,8 +7,9 @@
 #	password for the supported router.  You must, of course, have the
 #	handshake in order to use aircrack, or whichever tool you favor, to
 #	verify which of the passwords in the dictionary is the correct one.
-jigver="v0.3.3"
-echo "Jiggy Crack" $jigver "by Jeremy Drahos (jeremy@thedrahos.net)"
+
+jigver="v0.3.5"
+echo "Jiggy Crack" $jigver "by Jeremy Drahos (jcrack@thedrahos.net)"
 echo ""
 echo "Select the router model:"
 echo "1. Arris DG860A"
@@ -19,6 +20,8 @@ echo "5. Ubee DDW365"
 echo "6. Ubee DVW3201B"
 echo "7. Arris TG1672G"
 echo "8. Technicolor TC8717T"
+echo "9. Arris TG862G"
+echo "10. Arris DG1670A"
 echo "'q' to quit"
 echo ""
 read -p "Select the target router from the list: " router_option
@@ -29,51 +32,61 @@ q () {
 }
 
 sbg6580 () {
-	echo "What are the last 2 characters of the SSID for the SBG6580?"
+	rmodel="SBG6580"
+	rsmall="sbg6580"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
 	read router_last2
-	echo "Generating dictionary file for a SBG6580 with a SSID ending in $router_last2"
-	crunch 13 13 0123456789ABCDEF -t SBG6580@@@@$router_last2 > sbg6580.$router_last2
-	dictfile=`ls -sh sbg6580.$router_last2`
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 13 13 0123456789ABCDEF -t SBG6580@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
 	echo "Dictionary created: $dictfile"
 	exit 0
 }
 
 dvw3201b () {
-	echo "What are the last 2 characters of the SSID for the DVW3201B?"
+	rmodel="DVW3201B"
+	rsmall="dvw3201"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
 	read router_last2
-	echo "Generating dictionary file for a DVW3201B with a SSID ending in $router_last2"
-	crunch 14 14 0123456789ABCDEF -t DVW3201B@@@@$router_last2 > dvw3201b.$router_last2
-	dictfile=`ls -sh dvw3201b.$router_last2`
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 14 14 0123456789ABCDEF -t DVW3201B@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
 	echo "Dictionary created: $dictfile"
 	exit 0
 }
 
 ddw365 () {
-	echo "What are the last 2 characters of the SSID for the DDW365?"
+	rmodel="DDW365"
+	rsmall="ddw365"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
 	read router_last2
-	echo "Generating dictionary file for a DDW365 with a SSID ending in $router_last2"
-	crunch 12 12 0123456789ABCDEF -t DDW365@@@@$router_last2 > ddw365.$router_last2
-	dictfile=`ls -sh ddw365.$router_last2`
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 12 12 0123456789ABCDEF -t DDW365@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
 	echo "Dictionary created: $dictfile"
 	exit 0
 }
 
 dg860 () {
-	echo "What are the last 2 characters of the SSID for the DG860A?"
+	rmodel="DG860A"
+	rsmall="dg860"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
 	read router_last2
-	echo "Generating dictionary file for a DG860A with a SSID ending in $router_last2"
-	crunch 12 12 0123456789ABCDEF -t DG860A@@@@$router_last2 > dg860.$router_last2
-	dictfile=`ls -sh dg860.$router_last2`
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 12 12 0123456789ABCDEF -t DG860A@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
 	echo "Dictionary created: $dictfile"
 	exit 0
 }
 
 tg1672g () {
-	echo "What are the last 2 characters of the SSID for the TG1672G?"
+	rmodel="TG1672G"
+	rsmall="tg1672"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
 	read router_last2
-	echo "Generating dictionary file for a TG1672G with a SSID ending in $router_last2"
-	crunch 13 13 0123456789ABCDEF -t TG1672G@@@@$router_last2 > tg1672.$router_last2
-	dictfile=`ls -sh tg1672.$router_last2`
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 13 13 0123456789ABCDEF -t TG1672G@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
 	echo "Dictionary created: $dictfile"
 	exit 0
 }
@@ -109,11 +122,37 @@ read -p "WARNING: This dictionary will be 36GB! Are you sure you want to continu
 }
 
 tc8717t () {
-	echo "What are the last 2 characters of the SSID for the TC8717T?"
+	rmodel="TC8717T"
+	rsmall="tc8717"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
 	read router_last2
-	echo "Generating dictionary file for a TC8717T with a SSID ending in $router_last2"
-	crunch 13 13 0123456789ABCDEF -t TC8717T@@@@$router_last2 > tc8717t.$router_last2
-	dictfile=`ls -sh tc8717t.$router_last2`
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 13 13 0123456789ABCDEF -t TC8717T@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
+	echo "Dictionary created: $dictfile"
+	exit 0
+}
+
+tg862 () {
+	rmodel="TG862G"
+	rsmall="tg862"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
+	read router_last2
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 12 12 0123456789ABCDEF -t TG862G@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
+	echo "Dictionary created: $dictfile"
+	exit 0
+}
+
+dg1670 () {
+	rmodel="DG1670A"
+	rsmall="dg1670"
+	echo "What are the last 2 characters of the SSID for the $rmodel?"
+	read router_last2
+	echo "Generating dictionary file for a $rmodel with a SSID ending in $router_last2"
+	crunch 13 13 0123456789ABCDEF -t DG1670A@@@@$router_last2 > $rsmall.$router_last2
+	dictfile=`ls -sh $rsmall.$router_last2`
 	echo "Dictionary created: $dictfile"
 	exit 0
 }
@@ -134,6 +173,10 @@ case "$router_option" in
 	7 ) tg1672g
 	;;
 	8 ) tc8717t
+	;;
+	9 ) tg862
+	;;
+	10 ) dg1670
 	;;
 	q ) q
 	;;
