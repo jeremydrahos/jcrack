@@ -1,3 +1,7 @@
+**************************************************************************************
+*FROM THE DEV BRANCH. IT IS A WORK IN PROGRESS. THINGS MAY BE BROKEN. STICK TO MASTER*
+**************************************************************************************
+
 Jiggy Crack is a utility I wrote to create dictionary files that will crack the default passwords of select wireless gateways. If it is the default SSID and password, it will be cracked 100% of the time. It is for educational purposes only and not intended for networks other than your own.
 You will need the crunch utility installed and in your $PATH as well.
 
