@@ -22,7 +22,7 @@ echo "7. Arris TG1672G"
 echo "8. Technicolor TC8717T"
 echo "9. Arris TG862G"
 echo "10. Arris DG1670A"
-echo "11. Technicolor 8715D"
+echo "11. Technicolor TC8715D"
 echo "'q' to quit"
 echo ""
 read -p "Select the target router from the list: " router_option
